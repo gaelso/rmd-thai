@@ -2,6 +2,8 @@
 
 ## Guide for Window users. 
 
+The demo html file is available at: https://gaelso.github.io/rmd-thai/report.html
+
 1. System locale set to Thai
 1. Install Thai compatible font system wide (R package `extrafonts`)
 1. use font family in ggplot (R package `showtext`)

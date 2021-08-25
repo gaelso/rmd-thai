@@ -20,11 +20,15 @@ Recommend to edit at project level to avoid potential side effects on other proj
 The following script install 2 Google fonts (Windows only). More available at: https://fonts.google.com/?subset=thai
 One font will be used for text (roman and sf) and one for code chunks (mono).
 
+Note: This make local copy of the fonts for TeX paths. Might duplicate the fonts but is a more portable solution.
+
     if (Sys.info()['sysname'] == "Windows") {
       
       names(windowsFonts())
       
-      if (!("Sarabun"  %in% names(windowsFonts()))) {
+      dir.create("data", showWarnings = F)
+      
+      if (!("Sarabun" %in% names(windowsFonts()) & dir.exists("data/Sarabun"))) {
         dir.create("data", showWarnings = F)
         download.file(
           url = "https://fonts.google.com/download?family=Sarabun", 
@@ -37,7 +41,7 @@ One font will be used for text (roman and sf) and one for code chunks (mono).
       } ## END IF check font
       
       
-      if (!("Kanit"  %in% names(windowsFonts()))) {
+      if (!("Kanit"  %in% names(windowsFonts()) & dir.exists("data/Kanit"))) {
         dir.create("data", showWarnings = F)
         download.file(
           url = "https://fonts.google.com/download?family=Kanit", 

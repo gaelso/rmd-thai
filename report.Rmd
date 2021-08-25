@@ -1,0 +1,105 @@
+---
+title: "สวัสดี"
+author: "สวัสดี"
+date: "25/08/2021"
+output: 
+  word_document: default
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true
+    highlight: tango
+    includes:
+      in_header: preamble.tex
+    latex_engine: xelatex
+    dev: cairo_pdf
+    keep_tex: false
+  html_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    toc_float:
+      collapsed: false
+    fig_caption: true
+    highlight: tango
+fontsize: 11pt
+geometry: margin=2cm
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+## Change locale to Thai
+## - Create project .Rprofile: file.edit(".Rprofile")
+## - Write                   : Sys.setlocale("LC_CTYPE", "thai")
+## - Go to Session / Restart R
+
+library(showtext)
+font_add_google("Sarabun", "Sarabun")
+showtext::showtext_auto()
+
+library(extrafont)
+#remotes::install_version("Rttf2pt1", version = "1.3.8") ## Run 1 time
+
+source("R/install-fonts.R")
+
+library(ggplot2)
+
+
+```
+
+# สวัสดี
+
+## สวัสดี
+
+สวัสดี
+
+**สวัสดี**
+
+*สวัสดี*
+
+
+```{r plotthai, fig.showtext=T, fig.cap="สวัสดี"}
+df <- data.frame(a = paste0("สวัสดี ", letters[1:5]), b = 1:5)
+
+ggplot(df, aes(x = a, y = b)) +
+  geom_point() +
+  geom_text(aes(y = b + 0.2, label = a), family = "Sarabun") +
+  labs(
+    title = "สวัสดี",
+    caption = "สวัสดี") +
+  theme_bw() +
+  theme(text = element_text(family = "Sarabun")) 
+
+```
+
+```{r tablethai}
+
+col_names <- c("สวัสดี", "Value")
+
+knitr::kable(df, col.names = col_names, caption = "สวัสดี")
+ 
+```
+
+---
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

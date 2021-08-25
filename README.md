@@ -7,7 +7,7 @@
 1. use font family in ggplot (R package `showtext`)
 1. Add settings in `preamble.tex` to use fonts and and other text formatting in pdf.
 
-#### System locale
+### System locale
 
 Recommend to edit at project level to avoid potential side effects on other projects.
 
@@ -15,7 +15,7 @@ Recommend to edit at project level to avoid potential side effects on other proj
 - In your file type: `Sys.setlocale("LC_CTYPE", "thai")` 
 - Go to Session > Restart R
 
-#### Install fonts 
+### Install fonts 
 
 The following script install 2 Google fonts (Windows only). More available at: https://fonts.google.com/?subset=thai
 One font will be used for text (roman and sf) and one for code chunks (mono).
@@ -58,7 +58,7 @@ Note that if `extrafont::font_import()` gives an error message `...No FontName. 
 
 
 
-#### Font family for plots
+### Font family for plots
 
 Plots are generated fro R and then passed on to markdown/pandooc/LaTeX. The `showtext` package is useful to have a font inside R plots that can display thai characters.Setup looks like this:
 
@@ -72,7 +72,7 @@ Then add to your gggplots:
 
 
 
-#### Settings for pdf
+### Settings for pdf
 
 Recommended YAML header:
 

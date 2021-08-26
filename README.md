@@ -69,8 +69,8 @@ Note that if `extrafont::font_import()` gives an error message `...No FontName. 
 Plots are generated fro R and then passed on to markdown/pandooc/LaTeX. The `showtext` package is useful to have a font inside R plots that can display thai characters.Setup looks like this:
 
     library(showtext)
-    font_add_google("Sarabun", "Sarabun")
-    showtext_auto()
+    sysfonts::font_add_google("Sarabun", "Sarabun")
+    showtext::showtext_auto()
 
 Then add to your gggplots:
 
